@@ -35,7 +35,7 @@ done
 select_pool() {
   # Use the onion service if the "--use-tor" flag was set.
   if [ "${use_tor}" = "true" ]; then
-    POOL[1]="http://expyuzz4wqqyqhjn.onion"
+    POOL[1]="http://2gzyxa5ihm7nsggfxnu52rck2vv4rvmdlkiu3zzui5du4xyclen53wid.onion"
   else
     POOL[1]="https://www.torproject.org"
   fi
