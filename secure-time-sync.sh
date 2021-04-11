@@ -2,6 +2,7 @@
 
 #    Secure Time Synchronization
 #    Copyright (C) 2019  madaidan
+#    Copyright (C) 2021  duck
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -40,8 +41,11 @@ select_pool() {
     POOL[1]="https://www.torproject.org"
   fi
 
-  # Tails website.
-  POOL[2]="https://tails.boum.org"
+  # Freedom of the Press.
+  if [ "$(use_tor}" = "true" ]; then
+    POOL[2]="http://fpfjxcrmw437h6z2xl3w4czl55kvkmxpapg37bbopsafdu7q454byxid.onion"
+  else
+    Pool[2]="https://freedom.press"
 
   # Whonix website.
   if [ "${use_tor}" = "true" ]; then
@@ -57,8 +61,8 @@ select_pool() {
     POOL[4]="https://duckduckgo.com"
   fi
 
-  # EFF.
-  POOL[5]="https://www.eff.org"
+  # EDRI.
+  POOL[5]="https://edri.org"
 
   # The last one doesn't get selected. Without the following line, POOL[5] would never be selected.
   POOL[6]=""
@@ -79,7 +83,7 @@ if [ "${use_tor}" = "true" ]; then
   SECURE_CURL="curl -sI --socks5-hostname localhost:9050"
 else
   # Protects against https downgrade attacks when not using Tor.
-  SECURE_CURL="curl -sI --tlsv1.2 --proto =https"
+  SECURE_CURL="curl -sI --tlsv1.3 --proto =https"
 fi
 
 if ! ${SECURE_CURL} -s ${SELECTED_POOL} &>/dev/null; then

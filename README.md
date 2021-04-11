@@ -9,10 +9,10 @@ The website is randomly selected from a pool of carefully chosen websites.
 The current websites in the pool are:
 
 * The Tor Project
-* The Tails website
+* The Freedom of the Press
 * The Whonix website
 * DuckDuckGo
-* The EFF's website
+* The EDRI's website
 
 The script can optionally connect to these websites over Tor and will connect to an onion service where possible.
 
